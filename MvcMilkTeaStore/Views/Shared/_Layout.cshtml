@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/myStyles.css" rel="stylesheet" />
+</head>
+<body >
+    <div class="container">
+        <!-- Grey with black text -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:navajowhite">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link active" href="~/MilkTeaStore/Index">MILK TEA STORE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/About">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/Contact">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("DangKy","NguoiDung")">SIGN UP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("DangNhap","NguoiDung")">LOGIN</a>
+                </li>
+            </ul>
+            <div class="ml-auto">
+                @Html.Action("GioHangPartial", "GioHang")
+            </div>
+        </nav>
+        <br />
+             @RenderBody()
+        <br />
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

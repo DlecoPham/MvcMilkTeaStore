@@ -1,0 +1,35 @@
+﻿@using MvcMilkTeaStore.Models;
+@model IEnumerable<TRASUA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   <link href="~/Content/IndexStyles.css" rel="stylesheet" />
+}
+
+
+<img style="width:100%" src="~/Images/banner.jpg" />
+<div class="row">
+    <div class="col-md-3">
+        @Html.Action("LayChuDe", "MilkTeaStore")
+    </div>
+    <div class="col-md-9">
+
+        @foreach (var trasua in Model)
+        {
+
+            <div class="trasua-section">
+
+                <a href="@Url.Action("Details", "MilkTeaStore", new { id = trasua.Matrasua })">
+                    <img class="card-img-top trasua-picture" src="~/Images/@trasua.Hinhminhhoa" alt="Card image">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">@trasua.Tentrasua</h4>
+                    <p class="card-text">@trasua.Dongia</p>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+

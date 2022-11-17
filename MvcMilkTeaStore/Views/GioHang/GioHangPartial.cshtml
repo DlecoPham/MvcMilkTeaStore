@@ -1,0 +1,14 @@
+﻿
+@using MvcMilkTeaStore.Models
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+@if (kh != null)
+{
+    <span style="color: white; font-weight: bold">
+        Username: @kh.TenDN
+    </span>
+}
+<a href="@Url.Action("HienThiGioHang", "GioHang")" style="text-decoration: none; color:white; font-weight: bold">
+    <img src="~/Images/Giohang.gif" /> Giỏ hàng (@ViewBag.TongSL)
+</a>
