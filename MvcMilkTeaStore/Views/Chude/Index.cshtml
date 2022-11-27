@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvcMilkTeaStore.Models.CHUDE>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create");
+</p>
+
+@using (Html.BeginForm("Index", "CHUDes", FormMethod.Get))
+            {
+                <input type="text" name="_name"/>
+                <input type="submit" value="Search"/>
+                <table class="table">
+                       <tr>
+                           <th>
+                               @Html.DisplayNameFor(model => model.MaCD)
+                           </th>
+                           <th>
+                               @Html.DisplayNameFor(model => model.TenChuDe)
+                           </th>
+                           <th></th>
+                       </tr>
+                    @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaCD)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenChuDe)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new {id = item.MaCD})|
+                            @Html.ActionLink("Details", "Details", new {id = item.MaCD}) |
+                            @Html.ActionLink("Delete", "Delete", new {id = item.MaCD})
+                        </td>
+                    </tr>
+                }
+                       </table>
+
+            }

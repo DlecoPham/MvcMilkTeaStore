@@ -25,5 +25,6 @@ namespace MvcMilkTeaStore.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRASUA> TRASUAs { get; set; }
+        public List<CHUDE> ListCate { get; internal set; }
     }
 }

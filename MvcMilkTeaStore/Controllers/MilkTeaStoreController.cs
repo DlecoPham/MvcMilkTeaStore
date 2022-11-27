@@ -34,5 +34,10 @@ namespace MvcMilkTeaStore.Controllers
             var trasua = database.TRASUAs.FirstOrDefault(s => s.Matrasua == id);
             return View(trasua);
         }
+        public ActionResult TimKiem(string sTuKhoa)
+        {
+            var lstSP = database.TRASUAs.Where(n => n.Tentrasua.Contains(sTuKhoa));
+            return View(lstSP.OrderBy(n => n.Tentrasua));
+        }
     }
 }

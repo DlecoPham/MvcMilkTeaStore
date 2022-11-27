@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcMilkTeaStore.Models.TRASUA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/myStyles.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div style="margin: 10px auto; width: 90%;">
+    <h2 style="text-align: center">THÔNG TIN PRODUCTS</h2>
+    <p>
+        @Html.ActionLink("TẠO MỚI", "Create", null, new
+        {
+            @class = "btn btn-primary"
+        })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                TÊN SẢN PHẨM
+            </th>
+            <th>
+                MÔ TẢ
+            </th>
+            <th>
+                GIÁ
+            </th>
+            <th>
+                HÌNH
+            </th>
+            <th>
+                CATEGORY
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tentrasua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dongia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.Matrasua }, new { @class = "btn btn-danger", })|
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Matrasua }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Matrasua }, new { @class = "btn btn-primary" })
+</td>
+            </tr>
+        }
+    </table>
+</div>

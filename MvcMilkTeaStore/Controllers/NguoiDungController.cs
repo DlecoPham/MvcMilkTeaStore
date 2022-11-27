@@ -60,9 +60,9 @@ namespace MvcMilkTeaStore.Controllers
             {
                 if (string.IsNullOrEmpty(kh.TenDN))
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập không được để trống");
-            if (string.IsNullOrEmpty(kh.Matkhau))
+                if (string.IsNullOrEmpty(kh.Matkhau))
                     ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     //Tìm khách hàng có tên đăng nhập và password hợp lệ trong CSDL
                     var khach = database.KHACHHANGs.FirstOrDefault(k => k.TenDN ==
@@ -81,4 +81,4 @@ namespace MvcMilkTeaStore.Controllers
         }
     }
 }
-    
+

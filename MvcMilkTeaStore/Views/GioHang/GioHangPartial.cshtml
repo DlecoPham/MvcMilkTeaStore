@@ -5,10 +5,9 @@
 }
 @if (kh != null)
 {
-    <span style="color: white; font-weight: bold">
-        Username: @kh.TenDN
+    <span style="color: black; font-weight: 700;font-size:16px;">
+        @kh.HoTenKH | 
     </span>
 }
-<a href="@Url.Action("HienThiGioHang", "GioHang")" style="text-decoration: none; color:white; font-weight: bold">
-    <img src="~/Images/Giohang.gif" /> Giỏ hàng (@ViewBag.TongSL)
+<a href="@Url.Action("HienThiGioHang", "GioHang")" style="text-decoration: none; color:black;font-size:10px; font-weight: bold">Giỏ hàng (@ViewBag.TongSL)
 </a>

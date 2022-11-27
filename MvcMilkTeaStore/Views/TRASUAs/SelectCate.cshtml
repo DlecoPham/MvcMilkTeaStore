@@ -1,0 +1,2 @@
+﻿@model MvcMilkTeaStore.Models.CHUDE
+@Html.DropDownListFor(Model => Model.MaCD, new SelectList(Model.ListCate.OrderBy(Model => Model.TenChuDe),"MaCD", "TenChuDe"),"--Select Cate--")

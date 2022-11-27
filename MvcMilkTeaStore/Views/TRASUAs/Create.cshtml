@@ -1,0 +1,49 @@
+﻿@model MvcMilkTeaStore.Models.TRASUA
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/script.js"></script>
+
+<h2>Thêm sản phẩm</h2>
+
+@using (Html.BeginForm("Create", "TRASUAs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table class="tabke-bordered" style="display:flex;justify-content:center;">
+    <tr>
+        <td>@Html.LabelFor(model => model.Tentrasua)</td>
+        <td>@Html.EditorFor(model => model.Tentrasua)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.Dongia)</td>
+        <td>@Html.EditorFor(model => model.Dongia)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.CHUDE)</td>
+        <td>
+            @{ 
+                Html.RenderAction("SelectCate", "TRASUAs");
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.Mota)</td>
+        <td>@Html.EditorFor(model => model.Mota)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.Hinhminhhoa)</td>
+        <td>
+            <img src="@Url.Content(Model.Hinhminhhoa)" height="150" width="150" id="previewImg" />
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">    
+            <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+            <input class="btn btn-primary" type="submit" value="Tạo mới" />        
+        </td>
+    </tr>
+</table>
+}
+

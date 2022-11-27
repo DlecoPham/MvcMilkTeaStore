@@ -1,44 +1,129 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/myStyles.css" rel="stylesheet" />
+    <link href="~/Content/myStyle2.css" rel="stylesheet" />
+    <script src="~/Scripts/script.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+
 </head>
-<body >
-    <div class="container">
-        <!-- Grey with black text -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:navajowhite">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link active" href="~/MilkTeaStore/Index">MILK TEA STORE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/About">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Home/Contact">CONTACT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("DangKy","NguoiDung")">SIGN UP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("DangNhap","NguoiDung")">LOGIN</a>
-                </li>
-            </ul>
-            <div class="ml-auto">
-                @Html.Action("GioHangPartial", "GioHang")
-            </div>
-        </nav>
-        <br />
-             @RenderBody()
-        <br />
+
+<header>
+    <div class="fontDeli">Free Delivery</div>
+    <div style="background-color:white;">
+        <div id="animContainer2"> </div>
+
+        <!-- Scripts -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js'></script> <!-- path of bodymovin library-->
+        <script src="~/Scripts/scriptDeli.js"></script>
+
+
+        @*<img src="~/Images/bubble tea.jpg" style="height:100px; margin-left:660px;" alt="Alternate Text" />*@
+        <div id="animContainer"> </div>
+        <!-- Scripts -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js'></script> <!-- path of bodymovin library-->
+        <script src="~/Scripts/scriptLogo.js"></script>
+        <a href="@Url.Action("DangNhap", "NguoiDung")" style="position: relative; left: 300px; bottom: 30px; font-weight: 600;" class="btn btn-outline-success" type="submit">Đăng Nhập</a>
+        <button type="button" class="btn btn-outline-success" style=" margin-left: 1200px; margin-top: -60px;">
+            @Html.Action("GioHangPartial", "GioHang")
+            <img src="~/Images/shopping-cart.png" style="height:30px; " alt="Alternate Text" />
+        </button>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div style="background-color:white;">
+        <hr width="100%" style="margin:0px" />
+    </div>
+</header>
+
+
+<body>
+        <div class="container-fluid" style="padding:0px;">
+            <!-- Grey with black text -->
+            <nav class="navbar navbar-expand-sm" style="background-color: white; text-align: center; display: flex; justify-content: center;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active topfont" href="~/MilkTeaStore/Index">Trang chủ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle topfont" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Trà sữa
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=4 })">Trà sữa đặc biệt</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=1 })" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Trà
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=3 })">Trà thái xanh</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=6 })#">Trà đào</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=5 })">Topping</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </nav>
+        </div>
+
+        <br>
+        @RenderBody()
+        <br />
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
-</html>
+
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">
+                    CÂU CHUYỆN THƯƠNG HIỆU
+                    Tên gọi Phúc Long xuất phát từ ý nghĩa trong tiếng Hoa là Trà cung đình. Thời xưa, các loại trà tốt nhất thường được các vị hoàng thân quý tộc ngự dùng. Ngày nay, Phúc Long mong muốn phục vụ các loại trà tốt nhất cho thực khách, cũng như chính tên gọi của thương hiệu. Kể từ khi được thành lập vào năm 2006 tại Đài Loan, chuỗi cửa hàng Phúc Long đã mở rộng trên khắp 19 quốc gia với 1.500 cửa hàng và con số này vẫn tiếp tục tăng trưởng không ngừng. Qua nhiều năm nỗ lực phát triển, Phúc Long đã trở nên phổ biến với khách hàng từ nhiều quốc gia và trở thành một trong những thương hiệu trà đáng tin cậy hàng đầu trên thế giới.
+                </p>
+            </div>
+
+            <div class="col-xs-6 col-md-3" style="position:relative;left:350px;">
+                <h6>Sản phẩm</h6>
+                <ul class="footer-links">
+                    <li><a href="">Trà sữa</a></li>
+                    <li><a href="">Trà</a></li>
+                    <li><a href="">Bánh ngọt</a></li>
+                    <li><a href="">Topping</a></li>
+                    <li><a href="">Cà phê</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">
+                    © 2022 Copyright: Đồ án lập trình web
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a class="instagram" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a class="heart" href="#"><i class="fa-solid fa-heart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,59 @@
+﻿@using MvcMilkTeaStore.Models;
+@model IEnumerable<TRASUA>
+
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/indexStyle.css" rel="stylesheet" />
+}
+
+<div class="menu">
+    @*<div class="col-md-1" style="position:relative; left:25px">
+            @Html.Action("LayChuDe", "MilkTeaStore")
+        </div>*@
+    <div class="container-fluid" style="padding : 0px; position:relative;bottom:20px">
+        @*<img class="banner" src="~/Images/banner.jpg" style="width: 1000px; display: flex; justify-content: center; text-align: center; height: 300px; margin-left: 160px;margin-bottom:100px;margin-top:-250px" Alternate Text" />*@
+        <div id="carouselExampleInterval" class="carousel slide banner" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="~/Images/banner3.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/Images/banner1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Images/banner2.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="justify-content: center;">
+
+    @foreach (var trasua in Model)
+    {
+
+        <div class="card showind" style="width: 18rem; margin: 50px; position: relative;">
+            <a href="@Url.Action("Details", "MilkTeaStore", new { id = trasua.Matrasua })">
+                <img class="card-img-top" src="~/Images/@trasua.Hinhminhhoa" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">@trasua.Tentrasua</h5>
+                <p class="card-text">@trasua.Dongia</p>
+                <a href="@Url.Action("ThemSanPhamVaoGio", "GioHang", new{ MaSP = trasua.Matrasua })" class="btn btn-primary" style="background-color: darkseagreen; border-color:deepskyblue ">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+
