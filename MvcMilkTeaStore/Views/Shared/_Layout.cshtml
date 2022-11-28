@@ -28,10 +28,13 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js'></script> <!-- path of bodymovin library-->
         <script src="~/Scripts/scriptLogo.js"></script>
         <a href="@Url.Action("DangNhap", "NguoiDung")" style="position: relative; left: 300px; bottom: 30px; font-weight: 600;" class="btn btn-outline-success" type="submit">Đăng Nhập</a>
-        <button type="button" class="btn btn-outline-success" style=" margin-left: 1200px; margin-top: -60px;">
+        <a href="@Url.Action("LogOutUser","NguoiDung")"style="position: relative; left: 305px; bottom: 30px; font-weight: 600;" class="btn btn-light">LogOut</a>
+        <a href="@Url.Action("Index", "TRASUAs")" style="position: relative; left: 310px; bottom: 30px; font-weight: 600;"class="btn btn-outline-warning">Admin</a>
+        <button style=" margin-left: 1200px; margin-top: -60px;">
             @Html.Action("GioHangPartial", "GioHang")
             <img src="~/Images/shopping-cart.png" style="height:30px; " alt="Alternate Text" />
         </button>
+        
     </div>
     <div style="background-color:white;">
         <hr width="100%" style="margin:0px" />
@@ -68,10 +71,7 @@
                         <a class="nav-link topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=5 })">Topping</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                
             </nav>
         </div>
 
@@ -93,17 +93,6 @@
                     CÂU CHUYỆN THƯƠNG HIỆU
                     Tên gọi Phúc Long xuất phát từ ý nghĩa trong tiếng Hoa là Trà cung đình. Thời xưa, các loại trà tốt nhất thường được các vị hoàng thân quý tộc ngự dùng. Ngày nay, Phúc Long mong muốn phục vụ các loại trà tốt nhất cho thực khách, cũng như chính tên gọi của thương hiệu. Kể từ khi được thành lập vào năm 2006 tại Đài Loan, chuỗi cửa hàng Phúc Long đã mở rộng trên khắp 19 quốc gia với 1.500 cửa hàng và con số này vẫn tiếp tục tăng trưởng không ngừng. Qua nhiều năm nỗ lực phát triển, Phúc Long đã trở nên phổ biến với khách hàng từ nhiều quốc gia và trở thành một trong những thương hiệu trà đáng tin cậy hàng đầu trên thế giới.
                 </p>
-            </div>
-
-            <div class="col-xs-6 col-md-3" style="position:relative;left:350px;">
-                <h6>Sản phẩm</h6>
-                <ul class="footer-links">
-                    <li><a href="">Trà sữa</a></li>
-                    <li><a href="">Trà</a></li>
-                    <li><a href="">Bánh ngọt</a></li>
-                    <li><a href="">Topping</a></li>
-                    <li><a href="">Cà phê</a></li>
-                </ul>
             </div>
         </div>
         <hr>

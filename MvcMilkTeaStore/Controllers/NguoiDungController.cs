@@ -79,6 +79,11 @@ namespace MvcMilkTeaStore.Controllers
             }
             return RedirectToAction("Index", "MilkTeaStore");
         }
+        public ActionResult LogOutUser(KHACHHANG kh)
+        {
+            Session.Abandon();
+            return RedirectToAction("DangNhap", "NguoiDung");
+        }
     }
 }
 

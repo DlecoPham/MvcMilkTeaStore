@@ -11,9 +11,12 @@ namespace MvcMilkTeaStore.Controllers
     {
         // GET: MilkTeaStore
         QLBANTRASUAEntities database = new QLBANTRASUAEntities();
-        public ActionResult Index()
+        public ActionResult Index(string _name)
         {
-            return View(database.TRASUAs.ToList());
+            if (_name == null)
+                return View(database.TRASUAs.ToList());
+            else
+                return View(database.TRASUAs.Where(s => s.Tentrasua.Contains(_name)).ToList());
         }
        
         public ActionResult LayChuDe()

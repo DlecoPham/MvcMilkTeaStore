@@ -35,7 +35,12 @@
         </div>
     </div>
 </div>
-
+@using (Html.BeginForm("Index", "MilkTeaStore", FormMethod.Get))
+{ 
+    <p style="text-align:center">
+        <input type="text" name="_name"/>
+        <input type="submit" value="Search"/>
+    </p>
 <div class="row" style="justify-content: center;">
 
     @foreach (var trasua in Model)
@@ -47,11 +52,12 @@
             </a>
             <div class="card-body">
                 <h5 class="card-title">@trasua.Tentrasua</h5>
-                <p class="card-text">@trasua.Dongia</p>
-                <a href="@Url.Action("ThemSanPhamVaoGio", "GioHang", new{ MaSP = trasua.Matrasua })" class="btn btn-primary" style="background-color: darkseagreen; border-color:deepskyblue ">Thêm vào giỏ hàng</a>
+                <p class="card-text">@String.Format("{0:0.}", trasua.Dongia) VNĐ</p>
+                <a href="@Url.Action("Details", "MilkTeaStore", new { id = trasua.Matrasua })" class="btn btn-primary" style="background-color: darkseagreen; border-color:deepskyblue ">Thêm vào giỏ hàng</a>
             </div>
         </div>
     }
 </div>
+}
 
 
