@@ -30,7 +30,7 @@
         <a href="@Url.Action("DangNhap", "NguoiDung")" style="position: relative; left: 300px; bottom: 30px; font-weight: 600;" class="btn btn-outline-success" type="submit">Đăng Nhập</a>
         <a href="@Url.Action("LogOutUser","NguoiDung")"style="position: relative; left: 305px; bottom: 30px; font-weight: 600;" class="btn btn-light">LogOut</a>
         
-        <button style=" margin-left: 1200px; margin-top: -60px;">
+        <button style=" margin-left: 1300px; margin-top: -60px;">
             @Html.Action("GioHangPartial", "GioHang")
             <img src="~/Images/shopping-cart.png" style="height:30px; " alt="Alternate Text" />
         </button>
@@ -55,22 +55,32 @@
                             Trà sữa
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=4 })">Trà sữa đặc biệt</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=2 })">Trà sữa</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=4 })">Combo trà sữa đặc biệt</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=1 })" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle topfont" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Trà
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=3 })">Trà thái xanh</a></li>
-                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=6 })#">Trà đào</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=1 })#">Trà </a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=5 })">Topping</a>
                     </li>
-                </ul>
+                    <li>
+                        @using (Html.BeginForm("Index", "MilkTeaStore", FormMethod.Get))
+                        {
+                            <p >
+                                <input type="text" name="_name" />
+                                <input type="submit" value="Search" />
+                            </p>
+                        }
+                     </li>
+                    </ul>
                 
             </nav>
         </div>

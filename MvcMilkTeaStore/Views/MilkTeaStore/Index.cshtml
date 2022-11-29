@@ -1,5 +1,7 @@
-﻿@using MvcMilkTeaStore.Models;
-@model IEnumerable<TRASUA>
+﻿@*@model IEnumerable<MvcMilkTeaStore.Models.TRASUA>*@
+@using MvcMilkTeaStore.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<TRASUA>
 @{
     ViewBag.Title = "Trà sữa Phúc Long";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,12 +37,8 @@
         </div>
     </div>
 </div>
-@using (Html.BeginForm("Index", "MilkTeaStore", FormMethod.Get))
-{ 
-    <p style="text-align:center">
-        <input type="text" name="_name"/>
-        <input type="submit" value="Search"/>
-    </p>
+
+
 <div class="row" style="justify-content: center;">
 
     @foreach (var trasua in Model)
@@ -57,7 +55,13 @@
             </div>
         </div>
     }
+
 </div>
-}
+ Trang @(Model.PageCount<Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div style="display:inline;letter-spacing:10px;">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+
+
 
 

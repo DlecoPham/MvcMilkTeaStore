@@ -4,19 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcMilkTeaStore.Models;
-
+using PagedList;
+using PagedList.Mvc;
 namespace MvcMilkTeaStore.Controllers
 {
     public class MilkTeaStoreController : Controller
     {
         // GET: MilkTeaStore
         QLBANTRASUAEntities database = new QLBANTRASUAEntities();
-        public ActionResult Index(string _name)
+        public ActionResult Index(string _name,int? page)
         {
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
             if (_name == null)
-                return View(database.TRASUAs.ToList());
+                return View(database.TRASUAs.OrderByDescending(x=>x.Tentrasua).ToPagedList(pageNum,pageSize));
             else
-                return View(database.TRASUAs.Where(s => s.Tentrasua.Contains(_name)).ToList());
+                return View(database.TRASUAs.OrderByDescending(x=>x.Tentrasua).Where(s => s.Tentrasua.Contains(_name)).ToPagedList(pageNum,12));
         }
        
         public ActionResult LayChuDe()
@@ -24,10 +27,12 @@ namespace MvcMilkTeaStore.Controllers
             var dsChuDe = database.CHUDEs.ToList();
             return PartialView(dsChuDe);
         }
-        public ActionResult SPTheoChuDe(int id)
+        public ActionResult SPTheoChuDe(int id, int? page)
         {
+            
+            int pageNum = (page ?? 1);
             //Lấy các sách theo mã chủ đề được chọn
-            var dsTraSuaTheoChuDe = database.TRASUAs.Where(trasua => trasua.MaCD ==id).ToList();
+            var dsTraSuaTheoChuDe = database.TRASUAs.OrderByDescending(x=>x.Tentrasua).Where(trasua => trasua.MaCD == id).ToPagedList(pageNum, 16);
             //Trả về View để render các sách trên (tái sử dụng View Index ở trên, truyền vào danh sách)
             return View("Index", dsTraSuaTheoChuDe);
         }
