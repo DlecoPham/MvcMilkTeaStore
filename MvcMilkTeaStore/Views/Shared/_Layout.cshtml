@@ -28,9 +28,9 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js'></script> <!-- path of bodymovin library-->
         <script src="~/Scripts/scriptLogo.js"></script>
         <a href="@Url.Action("DangNhap", "NguoiDung")" style="position: relative; left: 300px; bottom: 30px; font-weight: 600;" class="btn btn-outline-success" type="submit">Đăng Nhập</a>
-        <a href="@Url.Action("LogOutUser","NguoiDung")"style="position: relative; left: 305px; bottom: 30px; font-weight: 600;" class="btn btn-light">LogOut</a>
+        <a href="@Url.Action("LogOutUser","NguoiDung")"style="position: relative; left: 305px; bottom: 30px; font-weight: 600;" class="btn btn-outline-success" type="submit">Đăng Xuất</a>
         
-        <button style=" margin-left: 1300px; margin-top: -60px;">
+        <button style=" margin-left: 1300px; margin-top: -60px; position: absolute; right: 100px; top: 100px;">
             @Html.Action("GioHangPartial", "GioHang")
             <img src="~/Images/shopping-cart.png" style="height:30px; " alt="Alternate Text" />
         </button>
@@ -45,7 +45,7 @@
 <body>
         <div class="container-fluid" style="padding:0px;">
             <!-- Grey with black text -->
-            <nav class="navbar navbar-expand-sm" style="background-color: white; text-align: center; display: flex; justify-content: center;">
+            <nav class="navbar navbar-expand-sm" style="background-color: white; text-align: center; display: flex; justify-content: center;padding:0px;">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active topfont" href="~/MilkTeaStore/Index">Trang chủ</a>
@@ -71,7 +71,7 @@
                     <li class="nav-item">
                         <a class="nav-link topfont" href="@Url.Action("SPTheoChuDe", "MilkTeaStore", new { id=5 })">Topping</a>
                     </li>
-                    <li>
+                    <li style="position: relative; top: 26px;">
                         @using (Html.BeginForm("Index", "MilkTeaStore", FormMethod.Get))
                         {
                             <p >
@@ -103,6 +103,16 @@
                     CÂU CHUYỆN THƯƠNG HIỆU
                     Tên gọi Phúc Long xuất phát từ ý nghĩa trong tiếng Hoa là Trà cung đình. Thời xưa, các loại trà tốt nhất thường được các vị hoàng thân quý tộc ngự dùng. Ngày nay, Phúc Long mong muốn phục vụ các loại trà tốt nhất cho thực khách, cũng như chính tên gọi của thương hiệu. Kể từ khi được thành lập vào năm 2006 tại Đài Loan, chuỗi cửa hàng Phúc Long đã mở rộng trên khắp 19 quốc gia với 1.500 cửa hàng và con số này vẫn tiếp tục tăng trưởng không ngừng. Qua nhiều năm nỗ lực phát triển, Phúc Long đã trở nên phổ biến với khách hàng từ nhiều quốc gia và trở thành một trong những thương hiệu trà đáng tin cậy hàng đầu trên thế giới.
                 </p>
+            </div>
+            <div class="col-xs-6 col-md-3" style="position:relative;left:350px;">
+                <h6>Sản phẩm</h6>
+                <ul class="footer-links">
+                    <li><a href="">Trà sữa</a></li>
+                    <li><a href="">Trà</a></li>
+                    <li><a href="">Bánh ngọt</a></li>
+                    <li><a href="">Topping</a></li>
+                    <li><a href="">Cà phê</a></li>
+                </ul>
             </div>
         </div>
         <hr>

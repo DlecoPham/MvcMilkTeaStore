@@ -14,7 +14,7 @@ namespace MvcMilkTeaStore.Controllers
         QLBANTRASUAEntities database = new QLBANTRASUAEntities();
         public ActionResult Index(string _name,int? page)
         {
-            int pageSize = 8;
+            int pageSize = 6;
             int pageNum = (page ?? 1);
             if (_name == null)
                 return View(database.TRASUAs.OrderByDescending(x=>x.Tentrasua).ToPagedList(pageNum,pageSize));
