@@ -21,7 +21,7 @@ namespace MvcMilkTeaStore.Models
         {
             this.MaTraSua = MaTraSua;
 
-            //Tìm sách trong CSDL có mã id cần và gán cho mặt hàng được mua
+            //Tìm trà sữa trong CSDL có mã id cần và gán cho mặt hàng được mua
             var trasua = db.TRASUAs.Single(s => s.Matrasua == this.MaTraSua);
             this.TenTraSua = trasua.Tentrasua;
             this.AnhBia = trasua.Hinhminhhoa;

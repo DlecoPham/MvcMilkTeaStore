@@ -31,14 +31,14 @@ namespace MvcMilkTeaStore.Controllers
         {
             
             int pageNum = (page ?? 1);
-            //Lấy các sách theo mã chủ đề được chọn
+            //Lấy trà sữa theo mã chủ đề được chọn
             var dsTraSuaTheoChuDe = database.TRASUAs.OrderByDescending(x=>x.Tentrasua).Where(trasua => trasua.MaCD == id).ToPagedList(pageNum, 16);
-            //Trả về View để render các sách trên (tái sử dụng View Index ở trên, truyền vào danh sách)
+            //Trả về View để render sp trên (tái sử dụng View Index ở trên, truyền vào danh sách)
             return View("Index", dsTraSuaTheoChuDe);
         }
         public ActionResult Details(int id)
         {
-            //Lấy sách có mã tương ứng
+            //Lấy trà sữa có mã tương ứng
             var trasua = database.TRASUAs.FirstOrDefault(s => s.Matrasua == id);
             return View(trasua);
         }
